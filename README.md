@@ -10,7 +10,7 @@ wget https://huggingface.co/karpathy/tinyllamas/resolve/main/stories42M.bin
 ```
 ### Build & Run
 ```shell
-cd ./llama/build
+cd ./llama && mkdir build && cd build
 cmake ..
 make
 ./llama-infer ../stories15M.bin (or ../stories42M.bin )
