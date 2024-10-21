@@ -17,7 +17,6 @@ int compare_tokens(const void *a, const void *b)
  */
 void build_tokenizer(Tokenizer *t, char *tokenizer_path, int vocab_size)
 {
-    // 本应将 vocab_size 写入分词器文件中（遗憾没有这么做）
     t->vocab_size = vocab_size;
 
     // 分配空间来存储词汇表中的字符串和它们的分数
@@ -25,7 +24,7 @@ void build_tokenizer(Tokenizer *t, char *tokenizer_path, int vocab_size)
     t->vocab_scores = (float *)malloc(vocab_size * sizeof(float)); // 分配词汇表对应的分数
     t->sorted_vocab = NULL; // 懒加载，稍后再初始化排序的词汇表
 
-    // 初始化 byte_pieces，用于字节级别的分词（将前256个字节的字符初始化为可打印的字符）
+    // 初始化 byte_pieces，用于字节级别的分词
     for (int i = 0; i < 256; i++)
     {
         t->byte_pieces[i * 2] = (unsigned char)i;   // 存储字节字符

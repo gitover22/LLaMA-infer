@@ -18,7 +18,7 @@ typedef struct
 
 typedef struct
 {
-    char **vocab;
+    char **vocab; // 存储所有的tokens string
     float *vocab_scores;
     TokenIndex *sorted_vocab;
     int vocab_size;
